@@ -66,5 +66,5 @@ function galleryManifestPlugin() {
 // https://vite.dev/config/
 export default defineConfig({
   plugins: [react(), galleryManifestPlugin()],
-  base: '/selva-tours-travels/',
+  base: '/STT_Website_final/',
 })
