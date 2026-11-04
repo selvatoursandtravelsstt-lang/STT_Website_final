@@ -1,0 +1,479 @@
+@import url('https://fonts.googleapis.com/css2?family=Allura&family=Dancing+Script:wght@600;700&display=swap');
+
+.about-introduction {
+  position: relative;
+  display: grid;
+  overflow: visible;
+  background: var(--light);
+}
+
+.about-introduction-background {
+  grid-area: 1 / 1;
+  display: block;
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+}
+
+.about-introduction-grid {
+  grid-area: 1 / 1;
+  position: relative;
+  z-index: 1;
+  display: block;
+  justify-self: center;
+  min-height: 100%;
+}
+
+.about-introduction-copy {
+  width: 48%;
+  padding-top: clamp(18px, 4vw, 58px);
+  padding-bottom: 32px;
+}
+
+.about-eyebrow-space {
+  display: block;
+  height: 25px;
+}
+
+.about-introduction-copy h1 {
+  max-width: 600px;
+  margin-top: 0;
+  color: var(--navy);
+  font-size: clamp(34px, 3.8vw, 56px);
+  line-height: 1.1;
+}
+
+.about-introduction-copy .eyebrow {
+  color: var(--deep-blue);
+}
+
+.about-gold-rule {
+  display: block;
+  width: 54px;
+  height: 2px;
+  margin-block: 24px 21px;
+  background: var(--gold);
+}
+
+.about-prose {
+  max-width: 590px;
+}
+
+.about-prose p {
+  color: var(--body);
+  font-size: clamp(11px, .85vw, 13px);
+  line-height: 1.65;
+}
+
+.about-prose p + p {
+  margin-top: 9px;
+}
+
+.about-founder-section {
+  position: relative;
+  z-index: 2;
+  padding-block: 34px;
+  border-top: 1px solid rgba(7, 29, 59, .08);
+  background: #fff;
+}
+
+.about-founder {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin: 0;
+}
+
+.about-founder-mark {
+  display: grid;
+  flex: 0 0 42px;
+  width: 42px;
+  height: 42px;
+  place-items: center;
+  border: 1px solid rgba(212, 175, 98, .72);
+  border-radius: 50%;
+  color: var(--navy);
+  font-family: var(--serif);
+  font-size: 14px;
+}
+
+.about-founder-name {
+  color: var(--navy);
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.about-founder-role {
+  margin-top: 4px;
+  color: var(--muted);
+  font-size: 11px;
+}
+
+.about-visual {
+  position: relative;
+  min-width: 0;
+  margin: 0;
+  padding: 0 0 25px 25px;
+}
+
+.about-visual::before {
+  position: absolute;
+  z-index: 0;
+  inset: 25px 0 0 0;
+  border: 1px solid var(--gold);
+  content: '';
+}
+
+.about-visual img {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  height: 475px;
+  object-fit: cover;
+  object-position: center;
+}
+
+.about-visual figcaption {
+  position: absolute;
+  z-index: 2;
+  right: -15px;
+  bottom: 0;
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  padding: 13px 17px;
+  color: var(--navy);
+  background: var(--white, #fff);
+  box-shadow: 0 8px 28px rgba(7, 29, 59, .12);
+  font-size: 10px;
+  font-weight: 600;
+}
+
+.about-visual figcaption span {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--gold);
+}
+
+.about-statistics {
+  overflow: hidden;
+  padding-block: 50px 52px;
+  background: var(--navy);
+}
+
+.about-section-heading {
+  max-width: 760px;
+  margin: 0 auto 22px;
+  text-align: center;
+}
+
+.about-travel-eyebrow .about-travel-highlight {
+  display: inline-block;
+  margin-inline: .02em;
+  color: var(--navy);
+  font-family: 'Allura', cursive;
+  font-size: 1.65em;
+  font-weight: 700;
+  line-height: .8;
+  vertical-align: baseline;
+  letter-spacing: 0;
+}
+
+.about-statistics .about-section-heading {
+  margin-bottom: 40px;
+}
+
+.about-statistics .about-section-heading h2 {
+  margin-top: 10px;
+  color: #fff;
+}
+
+.about-statistics .about-section-heading > p:last-child {
+  color: #b9d9e8;
+}
+
+.about-statistics .about-section-heading .eyebrow {
+  color: var(--gold);
+}
+
+.about-section-heading h2 {
+  margin-top: 0;
+  color: var(--navy);
+  font-size: clamp(34px, 4.3vw, 48px);
+  line-height: 1.18;
+}
+
+.about-section-heading > p:last-child {
+  max-width: 680px;
+  margin: 15px auto 0;
+  color: var(--muted);
+  font-size: 13px;
+  line-height: 1.8;
+}
+
+.about-stat-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  align-items: center;
+  justify-items: center;
+  gap: 18px;
+  transform: none;
+}
+
+.about-stat-card {
+  position: relative;
+  width: 100%;
+  height: 190px;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 24px 18px;
+  border: 1px solid rgba(212, 175, 98, .38);
+  border-radius: 4px;
+  background: transparent;
+  text-align: center;
+  box-shadow: none;
+  animation: about-stat-float 4.8s ease-in-out infinite;
+}
+
+.about-stat-card::before {
+  display: none;
+}
+
+.about-stat-card:nth-child(2) {
+  animation-duration: 5.4s;
+  animation-delay: -1.2s;
+}
+
+.about-stat-card:nth-child(3) {
+  animation-duration: 6s;
+  animation-delay: -2.1s;
+}
+
+.about-stat-card:nth-child(4) {
+  animation-duration: 5.1s;
+  animation-delay: -3s;
+}
+
+.about-stat-value {
+  color: var(--gold);
+  font-family: var(--serif);
+  font-size: 40px;
+  line-height: 1.1;
+  font-variant-numeric: tabular-nums;
+}
+
+.about-stat-card h3 {
+  max-width: 210px;
+  margin-top: 7px;
+  color: #fff;
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: .03em;
+}
+
+@keyframes about-stat-float {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-8px);
+  }
+}
+
+.about-why-section {
+  padding-top: 72px;
+  padding-bottom: 72px;
+}
+
+.about-benefit-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 16px;
+}
+
+.about-benefit-card {
+  min-width: 0;
+  min-height: 205px;
+  padding: 20px 19px;
+  border: 1px solid rgba(84, 185, 216, .28);
+  background: #edf8fc;
+  box-shadow: 0 8px 24px rgba(7, 29, 59, .06);
+  transition: border-color 220ms ease, box-shadow 220ms ease, transform 220ms ease;
+}
+
+.about-benefit-card:hover {
+  transform: translateY(-4px);
+  border-color: rgba(212, 175, 98, .65);
+  box-shadow: 0 14px 30px rgba(84, 185, 216, .18);
+}
+
+.about-benefit-icon {
+  display: inline-flex;
+  width: 38px;
+  height: 38px;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  border: 1px solid rgba(212, 175, 98, .62);
+  background: #fff;
+  color: #9b7328;
+}
+
+.about-benefit-icon svg {
+  width: 18px;
+  height: 18px;
+  stroke-width: 1.7;
+}
+
+.about-benefit-card h3 {
+  margin-top: 13px;
+  color: var(--navy);
+  font-size: 21px;
+  line-height: 1.45;
+}
+
+.about-benefit-card p {
+  margin-top: 8px;
+  color: var(--muted);
+  font-size: 16px;
+  line-height: 1.75;
+}
+
+@media (max-width: 1000px) {
+  .about-introduction-grid {
+    gap: 44px;
+  }
+
+  .about-introduction-copy {
+    width: 49%;
+    padding-top: 18px;
+  }
+
+  .about-introduction-copy h1 {
+    font-size: clamp(28px, 4vw, 38px);
+  }
+
+  .about-gold-rule {
+    margin-block: 12px;
+  }
+
+  .about-prose p {
+    font-size: 13px;
+    line-height: 1.55;
+  }
+
+  .about-prose p + p {
+    margin-top: 6px;
+  }
+
+  .about-founder-section {
+    padding-block: 30px;
+  }
+
+  .about-visual img {
+    height: 430px;
+  }
+
+  .about-benefit-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .about-benefit-card {
+    min-height: 190px;
+  }
+
+  .about-stat-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 12px;
+  }
+
+  .about-stat-card {
+    height: 170px;
+  }
+}
+
+@media (max-width: 700px) {
+  .about-introduction {
+    display: block;
+  }
+
+  .about-introduction-grid {
+    position: relative;
+    inset: auto;
+    min-height: 0;
+    width: 100%;
+  }
+
+  .about-introduction-copy {
+    width: 100%;
+    padding: 25px 0 32px;
+  }
+
+  .about-introduction-copy h1 {
+    max-width: 520px;
+    font-size: clamp(32px, 9vw, 42px);
+  }
+
+  .about-visual {
+    margin-right: 10px;
+  }
+
+  .about-visual img {
+    height: min(68vw, 390px);
+    min-height: 250px;
+  }
+
+  .about-section-heading {
+    margin-bottom: 28px;
+  }
+
+  .about-stat-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 18px 12px;
+  }
+
+  .about-stat-card {
+    width: 100%;
+    height: 190px;
+    padding: 22px 12px;
+  }
+
+  .about-benefit-grid {
+    gap: 12px;
+  }
+
+}
+
+@media (max-width: 420px) {
+  .about-founder {
+    flex-wrap: wrap;
+  }
+
+  .about-benefit-grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .about-benefit-card {
+    min-height: 0;
+  }
+
+
+  .about-stat-card {
+    width: min(150px, calc((100vw - 56px) / 2));
+    height: min(150px, calc((100vw - 56px) / 2));
+  }
+
+  .about-stat-value {
+    font-size: 34px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .about-stat-card {
+    animation: none;
+  }
+}

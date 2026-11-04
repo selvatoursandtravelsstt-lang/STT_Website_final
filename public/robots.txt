@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://selvatoursandtravels.com/sitemap.xml
