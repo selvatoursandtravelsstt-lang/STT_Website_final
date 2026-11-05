@@ -51,6 +51,7 @@ function Footer() {
       <div className="footer-bottom page-width">
         <span>© {new Date().getFullYear()} {business.name}</span>
         <span>Based in Coimbatore, Tamil Nadu</span>
+        <span className="footer-credit">Copyrights held by <a href="https://www.xenoratechnologies.in/" target="_blank" rel="noopener noreferrer">AEX Xenora Technologies</a></span>
       </div>
     </footer>
   )

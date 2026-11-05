@@ -84,6 +84,8 @@ h3 { font-weight: 600; }
 .footer-contact > span { color: rgba(255,255,255,.55); font-size: 11px; }
 .footer-contact > a { display: inline-flex; align-items: center; gap: 7px; color: var(--light-gold); }
 .footer-bottom { display: flex; justify-content: space-between; gap: 20px; padding-block: 20px; border-top: 1px solid rgba(255,255,255,.13); color: rgba(255,255,255,.48); font-size: 10px; letter-spacing: .02em; }
+.footer-credit a { color: var(--light-gold); }
+.footer-credit a:hover { color: var(--gold); }
 
 .home-hero,
 .page-banner,
