@@ -171,6 +171,8 @@ const localTariff = {
   tableHeading: "Coimbatore Local Tariff",
 
   enquiryType: "Local Taxi",
+  introduction:
+    "Review reference hourly rates for local Coimbatore taxi trips. Confirm current fares, vehicle availability, and additional charges with Selva Tours and Travels before travel.",
 
   columns: [
     ["includedHours", "Included Hours"],
@@ -281,6 +283,8 @@ const outstationDayTariff = {
   tableHeading: "Outstation Round Trip — Day Basis",
 
   enquiryType: "Outstation Taxi",
+  introduction:
+    "Compare day-basis reference tariffs for outstation taxi trips and travels from Coimbatore. Confirm the route, current rates, included kilometres, and applicable charges before travel.",
   columns: [
     ["rentPerDay", "Rent per Day"],
     ["freeKmPerDay", "Free Kilometres per Day"],
@@ -367,6 +371,8 @@ const outstationKmTariff = {
   showVehicleImages: true,
 
   enquiryType: "Outstation Taxi",
+  introduction:
+    "Review kilometre-basis reference tariffs for outstation travel from Coimbatore. Confirm the route, current rates, included charges, and vehicle availability with Selva Tours and Travels.",
 
   columns: [
     ["minimumKmPerDay", "Minimum Kilometres per Day"],

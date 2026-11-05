@@ -6,53 +6,53 @@ const siteUrl = business.websiteUrl.replace(/\/+$/, '')
 
 const pageMeta = {
   '/': {
-    title: 'Coimbatore Taxi & Tours | Selva Tours and Travels',
-    description: 'Book local taxi services, airport transfers, outstation cabs and tour packages from Coimbatore with Selva Tours and Travels.',
+    title: 'Coimbatore Tours & Travels | Taxi & Tour Packages | Selva',
+    description: 'Find Coimbatore tours and travels, Coimbatore tour packages and tours from Coimbatore. Enquire about taxi, airport transfers and outstation travel with Selva.',
     breadcrumb: 'Home',
   },
   '/tariff': {
-    title: 'Taxi Tariffs in Coimbatore | Selva Tours',
-    description: 'Explore local taxi and outstation cab tariff options from Coimbatore with Selva Tours and Travels.',
+    title: 'Coimbatore Taxi Tariffs | Local & Outstation | Selva',
+    description: 'Compare reference local taxi and outstation travel tariffs from Coimbatore. Contact Selva Tours and Travels to confirm current rates, vehicle availability and applicable charges.',
     breadcrumb: 'Taxi Tariffs',
   },
   '/tour-packages': {
-    title: 'Tour Packages from Coimbatore | Selva Tours',
-    description: 'Explore suggested one-day and multi-day tour routes from Coimbatore. Confirm itinerary, rates and availability with Selva Tours.',
+    title: 'Coimbatore Tour Packages & Tours | Selva Tours',
+    description: 'Browse suggested one-day and multi-day Coimbatore tour packages, with routes from Coimbatore to popular destinations. Confirm itineraries, rates and availability with Selva Tours and Travels.',
     breadcrumb: 'Tour Packages',
   },
   '/about': {
-    title: 'About Selva Tours and Travels | Coimbatore',
-    description: 'Learn about Selva Tours and Travels, a Coimbatore travel business helping plan local taxi trips, outstation journeys and tours.',
+    title: 'About Selva Tours & Travels | Coimbatore Travel Agency',
+    description: 'Meet Selva Tours and Travels, a travel agency in Coimbatore helping travellers enquire about local taxi trips, outstation journeys and tour planning.',
     breadcrumb: 'About Us',
   },
   '/tariff/local-hours': {
-    title: 'Local Taxi Tariff in Coimbatore | Selva Tours',
-    description: 'Compare reference 8-hour and 10-hour local taxi packages in Coimbatore. Contact Selva Tours to confirm current rates and terms.',
+    title: 'Coimbatore Taxi Tariff | Local Hourly Rates | Selva',
+    description: 'Review reference hourly rates for local Coimbatore taxi trips. Contact Selva Tours and Travels to confirm current fares, vehicle availability and extra charges.',
     breadcrumb: 'Local Taxi Tariff',
   },
   '/tariff/outstation-day': {
-    title: 'Outstation Taxi Tariff by Day | Selva Tours',
-    description: 'Review day-basis reference tariffs for outstation taxi trips from Coimbatore. Confirm routes, current rates and charges before travel.',
+    title: 'Outstation Taxi from Coimbatore | Day Tariff | Selva',
+    description: 'Review day-basis taxi rates for outstation travels from Coimbatore. Confirm routes, included kilometres and charges with Selva Tours and Travels.',
     breadcrumb: 'Outstation Taxi — Day Basis',
   },
   '/tariff/outstation-km': {
-    title: 'Outstation Taxi Tariff per KM | Selva Tours',
-    description: 'Review kilometre-basis reference tariffs for outstation cabs from Coimbatore. Ask Selva Tours to confirm current rates and trip terms.',
+    title: 'Outstation Taxi from Coimbatore | Per-KM Tariff | Selva',
+    description: 'Check per-kilometre reference tariffs for outstation trips from Coimbatore. Confirm rates, routes and extra charges with Selva Tours and Travels.',
     breadcrumb: 'Outstation Taxi — KM Basis',
   },
   '/tariff/corporate': {
-    title: 'Corporate Cab Enquiries in Coimbatore | Selva',
-    description: 'Discuss employee transport, business travel or airport transfer requirements and request a corporate cab quotation from Selva Tours.',
+    title: 'Corporate Cab Enquiries in Coimbatore | Selva Tours',
+    description: 'Discuss employee transport, business travel and airport transfer requirements in Coimbatore. Request a corporate cab quotation from Selva Tours and Travels.',
     breadcrumb: 'Corporate Cab Enquiries',
   },
   '/contact': {
-    title: 'Contact Selva Tours and Travels | Coimbatore',
-    description: 'Contact Selva Tours and Travels in Coimbatore to enquire about local taxis, airport transfers, outstation travel and tour planning.',
+    title: 'Contact Selva Tours & Travels | Coimbatore Taxi',
+    description: 'Contact Selva Tours and Travels in Coimbatore to enquire about taxi services, airport transfers, travels from Coimbatore and suggested tour packages.',
     breadcrumb: 'Contact Us',
   },
   '/gallery': {
-    title: 'Travel Gallery | Selva Tours and Travels Coimbatore',
-    description: 'View destination and travel images from Selva Tours and Travels, based in Coimbatore, Tamil Nadu.',
+    title: 'Travel Gallery | Selva Tours & Travels Coimbatore',
+    description: 'Browse destination, vehicle and travel photographs associated with Selva Tours and Travels, a Coimbatore-based tours and travels business.',
     breadcrumb: 'Gallery',
   },
   '/reviews': {
@@ -89,9 +89,10 @@ export function getPageMeta(pathname) {
   const durationId = pathname.match(/^\/tour-packages\/([^/]+)$/)?.[1]
   const duration = tourPackageDurations.find(({ id }) => id === durationId)
   if (duration) {
+    const durationTerm = duration.days === 1 ? 'one-day' : `${duration.days}-day`
     return {
-      title: `${duration.pageTitle} from Coimbatore | Selva Tours`,
-      description: `Explore suggested ${duration.label.toLowerCase()} tour routes from Coimbatore. Confirm itinerary, vehicle availability and current prices with Selva Tours and Travels.`,
+      title: `Coimbatore Tour Packages: ${duration.label} | Selva`,
+      description: `Browse suggested ${durationTerm} tours from Coimbatore, including Kerala tours from Coimbatore. Review routes and tariffs with Selva Tours and Travels.`,
       breadcrumb: `${duration.label} Tour Packages`,
     }
   }

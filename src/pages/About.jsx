@@ -94,7 +94,7 @@ function About() {
             <span className="about-gold-rule" aria-hidden="true" />
             <div className="about-prose">
               <p>Every journey begins with a purpose, and at Selva Tours and Travels, we aim to make that journey easier to plan.</p>
-              <p>Founded in 2024 by Arun Kumar, Selva Tours and Travels was established with the goal of helping travellers explore convenient travel options from Coimbatore. From local journeys to outstation trips and tour enquiries, our focus is on understanding each traveller&apos;s requirements and helping them plan accordingly.</p>
+              <p>Founded in 2024 by Arun Kumar, Selva Tours and Travels is a tours and travels agency in Coimbatore focused on helping travellers explore suitable travel options. From local journeys to outstation trips and tour enquiries, we aim to understand each traveller&apos;s requirements and help them plan accordingly.</p>
               <p>As a growing travel business, we believe that good service starts with clear communication, thoughtful planning, and an understanding of what each journey requires.</p>
             </div>
           </div>

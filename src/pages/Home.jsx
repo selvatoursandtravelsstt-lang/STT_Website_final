@@ -1,6 +1,8 @@
 import { useEffect, useRef, useState } from 'react'
 import { Backpack, Landmark, Mountain, Umbrella, Users } from 'lucide-react'
 import { Link } from 'react-router-dom'
+import TourDurationLinks from '../components/TourDurationLinks.jsx'
+import { tourPackageDurations } from '../data/tourPackages.js'
 
 const testimonials = [
   {
@@ -187,7 +189,7 @@ function Home() {
         <span className="home-hero-video-credit">@rajography</span>
         <div className="hero-content page-width">
           <h1 id="home-title">Your Trusted Travel Partner in Coimbatore</h1>
-          <p className="hero-intro">Discover comfortable and convenient travel with Selva Tours and Travels. From local taxi services and airport transfers to outstation journeys, we help you plan your next trip with ease.</p>
+          <p className="hero-intro">Looking for Coimbatore tours and travels? Selva Tours and Travels is a travel agency in Coimbatore for local taxi, airport transfer and outstation enquiries. Explore Coimbatore tour packages and tours from Coimbatore.</p>
           <div className="hero-actions">
             <Link className="button button-gold" to="/tour-packages">Explore Tour Packages</Link>
             <Link className="button button-hero-outline" to="/contact">Contact Us</Link>
@@ -195,7 +197,7 @@ function Home() {
         </div>
       </section>
 
-      <section className="destination-slider-section" aria-labelledby="destination-title">
+      <section className="destination-slider-section home-duration-predecessor" aria-labelledby="destination-title">
         <div className="destination-slider-header">
           <h2 className="destination-heading" id="destination-title">
             <span className="destination-heading-top">TOP</span>
@@ -240,6 +242,8 @@ function Home() {
           </div>
         </div>
       </section>
+
+      <TourDurationLinks durations={tourPackageDurations} className="home-duration-links" headingId="home-duration-heading" />
 
       <section className="home-about" aria-labelledby="know-more-title">
         <div className="page-width home-about-content">

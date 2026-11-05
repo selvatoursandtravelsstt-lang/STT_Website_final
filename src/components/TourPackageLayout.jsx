@@ -3,6 +3,7 @@ import { ArrowRight, MapPin, Tag } from 'lucide-react'
 import { Link } from 'react-router-dom'
 import BookingActionLink from './BookingActionLink.jsx'
 import TariffTerms from './TariffTerms.jsx'
+import TourDurationLinks from './TourDurationLinks.jsx'
 import { createVehicleSummary } from '../utils/booking.js'
 import { tariffTerms } from '../data/tariffData.js'
 
@@ -31,6 +32,9 @@ function vehicleImageFor(category, vehicleName) {
 function TourPackageLayout({ duration, packages, durations }) {
   const [selection, setSelection] = useState({ durationId: duration.id, packageId: packages[0]?.id ?? '' })
   const shouldScrollToDetails = useRef(false)
+  const includesKeralaRoutes = packages.some(({ destination, title, route }) =>
+    /munnar|thekkady|alleppey|alleppy|kochi|cochin|wayanad|guruvayur|athirappalli|varkala|kerala/i.test(`${destination} ${title} ${route}`),
+  )
   const selectedPackageId = selection.durationId === duration.id ? selection.packageId : packages[0]?.id
   const selectedPackage = packages.find(({ id }) => id === selectedPackageId) ?? packages[0]
   const detailsId = selectedPackage ? `${duration.id}-package-${selectedPackage.id}` : undefined
@@ -58,8 +62,8 @@ function TourPackageLayout({ duration, packages, durations }) {
         <div className="page-width page-banner-inner">
           <div className="one-day-package-banner-copy">
             <p className="eyebrow">{duration.label.toUpperCase()} JOURNEYS FROM COIMBATORE</p>
-            <h1>{duration.pageTitle}</h1>
-            <p>Choose a route to review its vehicle tariffs, sightseeing itinerary, and listed charges. Enquiries are not confirmed bookings.</p>
+            <h1>{duration.days === 1 ? 'One-Day' : `${duration.days}-Day`} Tour Packages from Coimbatore</h1>
+            <p>Browse suggested Coimbatore tour packages and routes from Coimbatore. {includesKeralaRoutes && 'Some options are Kerala tours from Coimbatore. '}Review vehicle tariffs and itinerary details; confirm availability and charges with Selva Tours and Travels.</p>
             <nav className="package-breadcrumbs" aria-label="Breadcrumb">
               <Link to="/">Home</Link><span aria-hidden="true">›</span>
               <Link to="/tour-packages">Tour Packages</Link><span aria-hidden="true">›</span>
@@ -259,17 +263,7 @@ function TourPackageLayout({ duration, packages, durations }) {
         <TariffTerms tariff={{ terms: tariffTerms }} />
       </div>
 
-      <section className="duration-other-links" aria-labelledby="other-durations-heading">
-        <div className="page-width">
-          <p className="eyebrow">FIND ANOTHER DURATION</p>
-          <h2 id="other-durations-heading">Explore other tour durations</h2>
-          <div className="duration-other-grid">
-            {durations.filter(({ id }) => id !== duration.id).map((item) => (
-              <Link key={item.id} to={`/tour-packages/${item.id}`}>{item.label} <ArrowRight size={15} aria-hidden="true" /></Link>
-            ))}
-          </div>
-        </div>
-      </section>
+      <TourDurationLinks durations={durations} currentDurationId={duration.id} />
     </div>
   )
 }

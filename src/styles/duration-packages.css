@@ -187,6 +187,29 @@
   background: var(--light);
 }
 
+.duration-other-links.home-duration-links {
+  padding-block: 10px 14px;
+}
+
+.destination-slider-section.home-duration-predecessor {
+  padding-bottom: 48px;
+}
+
+.duration-other-links.home-duration-links .eyebrow,
+.duration-other-links.home-duration-links h2 {
+  text-align: center;
+}
+
+.duration-other-links.home-duration-links .duration-other-grid {
+  gap: 8px 10px;
+  margin-top: 10px;
+}
+
+.duration-other-links.home-duration-links h2 {
+  margin-top: 4px;
+  font-size: clamp(22px, 2.5vw, 29px);
+}
+
 .duration-other-links h2 {
   margin-top: 8px;
   color: var(--navy);
@@ -216,6 +239,30 @@
   font-weight: 600;
   line-height: 1.4;
   transition: border-color 180ms ease, color 180ms ease, transform 180ms ease;
+}
+
+.duration-other-links.home-duration-links .duration-other-grid a {
+  height: 50px;
+  gap: 8px;
+  padding: 8px 12px;
+  border-radius: 11px;
+  border-color: #073562;
+  color: #ffffff;
+  background: #03203d;
+  font-size: 15px;
+  line-height: 1.2;
+  transition: background-color 180ms ease, border-color 180ms ease, color 180ms ease, transform 180ms ease;
+}
+
+.duration-other-links.home-duration-links .duration-other-grid a svg {
+  flex: 0 0 auto;
+  color: #e4c27f;
+}
+
+.duration-other-links.home-duration-links .duration-other-grid a:hover {
+  border-color: #e4c27f;
+  color: #ffffff;
+  background: #073562;
 }
 
 .duration-other-grid a:hover,
@@ -464,10 +511,31 @@
     padding-block: 55px 65px;
   }
 
+  .duration-other-links.home-duration-links {
+    padding-block: 10px 14px;
+  }
+
+  .duration-other-links.home-duration-links .duration-other-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 8px;
+  }
+
+  .duration-other-links.home-duration-links .duration-other-grid a {
+    padding-inline: 10px;
+    font-size: 14px;
+    white-space: nowrap;
+  }
+
   .duration-route-grid,
   .duration-other-grid,
   .duration-link-grid {
     grid-template-columns: minmax(0, 1fr);
+  }
+
+  @media (max-width: 360px) {
+    .duration-other-links.home-duration-links .duration-other-grid {
+      grid-template-columns: minmax(0, 1fr);
+    }
   }
 
   .duration-route-grid {
