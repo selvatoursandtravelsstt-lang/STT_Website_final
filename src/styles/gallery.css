@@ -77,7 +77,7 @@
 }
 
 .gallery-section-heading h2 span {
-  color: #87ceeb;
+  color: var(--sky);
   font-family: 'Dancing Script', cursive;
   font-size: 1.18em;
   font-weight: 600;
@@ -110,7 +110,7 @@
 .gallery-rating-circle::before {
   position: absolute;
   inset: 7px;
-  border: 1px dashed #87ceeb;
+  border: 1px dashed var(--sky);
   border-radius: 50%;
   content: '';
 }
@@ -122,7 +122,7 @@
   width: 8px;
   height: 8px;
   border-radius: 50%;
-  background: #87ceeb;
+  background: var(--sky);
   content: '';
 }
 
@@ -343,7 +343,7 @@
   border: 1px solid rgba(255, 255, 255, .18);
   border-radius: 8px;
   color: #fff;
-  background: #071d3b;
+  background: var(--navy);
   box-shadow: 0 24px 90px rgba(0, 0, 0, .45);
 }
 
@@ -378,7 +378,7 @@
   flex-direction: column;
   gap: 12px;
   color: rgba(255, 255, 255, .75);
-  background: #0b2d52;
+  background: var(--deep-blue);
 }
 
 .gallery-viewer-close,
@@ -392,7 +392,7 @@
   border: 1px solid rgba(255, 255, 255, .45);
   border-radius: 50%;
   color: #fff;
-  background: rgba(7, 29, 59, .78);
+  background: rgba(3, 32, 61, .78);
   cursor: pointer;
 }
 

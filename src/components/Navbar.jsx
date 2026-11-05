@@ -22,10 +22,9 @@ const tariffLinks = [
   ['/tariff/corporate', 'Corporate Cab Bookings'],
 ]
 
-function Navbar() {
+function NavbarContent({ pathname }) {
   const [menuOpen, setMenuOpen] = useState(false)
   const [expandedMobileDropdown, setExpandedMobileDropdown] = useState(null)
-  const { pathname } = useLocation()
 
   const closeMenu = () => {
     setMenuOpen(false)
@@ -34,10 +33,8 @@ function Navbar() {
 
   useEffect(() => {
     const mobileBreakpoint = window.matchMedia('(max-width: 900px)')
-    if (!menuOpen || !mobileBreakpoint.matches) return undefined
+    if (!menuOpen) return undefined
 
-    const rootOverflow = document.documentElement.style.overflow
-    const bodyOverflow = document.body.style.overflow
     const handleBreakpointChange = (event) => {
       if (!event.matches) {
         setMenuOpen(false)
@@ -46,13 +43,9 @@ function Navbar() {
     }
 
     mobileBreakpoint.addEventListener('change', handleBreakpointChange)
-    document.documentElement.style.overflow = 'hidden'
-    document.body.style.overflow = 'hidden'
 
     return () => {
       mobileBreakpoint.removeEventListener('change', handleBreakpointChange)
-      document.documentElement.style.overflow = rootOverflow
-      document.body.style.overflow = bodyOverflow
     }
   }, [menuOpen])
 
@@ -267,6 +260,11 @@ function Navbar() {
       )}
     </>
   )
+}
+
+function Navbar() {
+  const location = useLocation()
+  return <NavbarContent key={location.key} pathname={location.pathname} />
 }
 
 export default Navbar

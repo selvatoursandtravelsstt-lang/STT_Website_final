@@ -9,6 +9,13 @@ const outputDirectory = resolve(projectRoot, 'dist')
 const siteUrl = business.websiteUrl.replace(/\/+$/, '')
 const template = readFileSync(resolve(outputDirectory, 'index.html'), 'utf8')
 const metadataRoutes = [...indexableSeoRoutes, '/reviews', '/booking-summary']
+const staticRoutes = [
+  ...metadataRoutes,
+  '/tariff',
+  '/tour-packages',
+  '/packages',
+  '/not-found',
+]
 const encodeAttribute = (value) => value
   .replaceAll('&', '&amp;')
   .replaceAll('"', '&quot;')
@@ -52,15 +59,14 @@ function renderSeoShell(pathname) {
   return html
 }
 
-const routeRewrites = []
-for (const pathname of metadataRoutes) {
+for (const pathname of staticRoutes) {
   if (pathname === '/') continue
-  const routeFileName = `${pathname.slice(1)}.html`
-  const pageFile = resolve(outputDirectory, routeFileName)
+  const pageFile = resolve(outputDirectory, pathname.slice(1), 'index.html')
   mkdirSync(dirname(pageFile), { recursive: true })
   writeFileSync(pageFile, renderSeoShell(pathname), 'utf8')
-  routeRewrites.push(`${pathname} /${routeFileName} 200`)
 }
+
+writeFileSync(resolve(outputDirectory, '404.html'), renderSeoShell('/not-found'), 'utf8')
 
 const sitemapUrls = indexableSeoRoutes
   .map((pathname) => `${siteUrl}${pathname === '/' ? '/' : pathname}`)
@@ -76,16 +82,4 @@ writeFileSync(
   `User-agent: *\nAllow: /\n\nSitemap: ${siteUrl}/sitemap.xml\n`,
   'utf8',
 )
-writeFileSync(
-  resolve(outputDirectory, '_redirects'),
-  [
-    '/tariff /tariff/local-hours 301',
-    '/tour-packages /tour-packages/one-day 301',
-    ...routeRewrites,
-    '/* /index.html 200',
-    '',
-  ].join('\n'),
-  'utf8',
-)
-
-console.log(`Generated SEO metadata pages and sitemap for ${indexableSeoRoutes.length} indexable routes.`)
+console.log(`Generated ${staticRoutes.length} GitHub Pages route entry points and sitemap for ${indexableSeoRoutes.length} indexable routes.`)

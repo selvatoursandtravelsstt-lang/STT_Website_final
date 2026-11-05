@@ -48,7 +48,7 @@ function enquiryDetailsFor(vehicle, columns) {
     .map(([key, label]) => [label, displayValue(vehicle[key], key)])
 }
 
-function VehicleImageCell({ tariff, vehicle }) {
+function VehicleImageCell({ vehicle }) {
   const image = vehicleImageFor(vehicle)
   return (
     <td data-label="Vehicle Image">
@@ -60,7 +60,7 @@ function VehicleImageCell({ tariff, vehicle }) {
 function TariffColumnWidths({ columnCount }) {
   const widths = columnCount === 9
     ? ['7%', '14%', '13%', '10%', '11%', '12%', '11%', '11%', '11%']
-    : Array.from({ length: columnCount }, (_, index) => `${100 / columnCount}%`)
+    : Array(columnCount).fill(`${100 / columnCount}%`)
 
   return (
     <colgroup>
@@ -90,7 +90,7 @@ function PackageTable({ tariff, packageGroup }) {
           <tbody>
             {packageGroup.vehicles.map((vehicle) => (
               <tr key={vehicle.id}>
-                <VehicleImageCell tariff={tariff} vehicle={vehicle} />
+                <VehicleImageCell vehicle={vehicle} />
                 <th scope="row" data-label="Vehicle">{vehicle.type}</th>
                 <td data-label="Category / Seating">{vehicle.category}</td>
                 {tariff.columns.map(([key, label]) => <td data-label={label} key={key}>{displayValue(vehicle[key], key)}</td>)}
@@ -180,7 +180,7 @@ function TariffTable({ tariff }) {
                 <tbody>
                   {tariff.vehicles.map((vehicle) => (
                     <tr key={vehicle.id || vehicle.type}>
-                      <VehicleImageCell tariff={tariff} vehicle={vehicle} />
+                      <VehicleImageCell vehicle={vehicle} />
                       <th scope="row" data-label="Vehicle">{vehicle.type}</th>
                       <td data-label="Category / Seating">{vehicle.category}</td>
                       {tariff.columns.map(([key, label]) => <td data-label={label} key={key}>{displayValue(vehicle[key], key)}</td>)}

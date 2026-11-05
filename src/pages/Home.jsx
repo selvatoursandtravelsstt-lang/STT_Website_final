@@ -50,6 +50,7 @@ function Home() {
   const heroVideoRef = useRef(null)
   const dragStart = useRef(null)
   const scrollTimer = useRef(null)
+  const destinationInitialized = useRef(false)
 
   const loopSlides = [
     { ...destinationSlides[destinationSlides.length - 1], clone: 'last', sourceIndex: destinationSlides.length - 1 },
@@ -96,12 +97,11 @@ function Home() {
   }
 
   useEffect(() => {
-    const frame = window.requestAnimationFrame(() => centerDestination(activeDestination + 1, false))
+    const frame = window.requestAnimationFrame(() => {
+      centerDestination(activeDestination + 1, destinationInitialized.current)
+      destinationInitialized.current = true
+    })
     return () => window.cancelAnimationFrame(frame)
-  }, [])
-
-  useEffect(() => {
-    centerDestination(activeDestination + 1)
   }, [activeDestination])
 
   useEffect(() => {

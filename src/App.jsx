@@ -41,8 +41,9 @@ function PageMeta() {
   const { pathname } = useLocation()
 
   useEffect(() => {
-    const page = getPageMeta(pathname)
-    const canonicalUrl = `${siteUrl}${pathname === '/' ? '/' : pathname}`
+    const normalizedPathname = pathname.replace(/\/+$/, '') || '/'
+    const page = getPageMeta(normalizedPathname)
+    const canonicalUrl = `${siteUrl}${normalizedPathname === '/' ? '/' : normalizedPathname}`
     document.title = page.title
     setMeta('meta[name="description"]', ['name', 'description'], page.description)
     setMeta('meta[name="robots"]', ['name', 'robots'], page.robots || 'index, follow, max-image-preview:large')
@@ -67,7 +68,7 @@ function PageMeta() {
     }
 
     const schema = document.getElementById('site-structured-data')
-    if (schema) schema.textContent = JSON.stringify(getPageStructuredData(pathname, page))
+    if (schema) schema.textContent = JSON.stringify(getPageStructuredData(normalizedPathname, page))
   }, [pathname])
 
   return null

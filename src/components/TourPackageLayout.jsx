@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import { ArrowRight, MapPin, Tag } from 'lucide-react'
 import { Link } from 'react-router-dom'
 import BookingActionLink from './BookingActionLink.jsx'
@@ -30,8 +30,27 @@ function vehicleImageFor(category, vehicleName) {
 
 function TourPackageLayout({ duration, packages, durations }) {
   const [selection, setSelection] = useState({ durationId: duration.id, packageId: packages[0]?.id ?? '' })
+  const shouldScrollToDetails = useRef(false)
   const selectedPackageId = selection.durationId === duration.id ? selection.packageId : packages[0]?.id
   const selectedPackage = packages.find(({ id }) => id === selectedPackageId) ?? packages[0]
+  const detailsId = selectedPackage ? `${duration.id}-package-${selectedPackage.id}` : undefined
+
+  useEffect(() => {
+    if (!shouldScrollToDetails.current || !detailsId) return
+
+    shouldScrollToDetails.current = false
+    document.getElementById(detailsId)?.scrollIntoView({ behavior: 'smooth', block: 'start' })
+  }, [detailsId])
+
+  const selectPackage = (packageId) => {
+    if (packageId === selectedPackage?.id) {
+      document.getElementById(detailsId)?.scrollIntoView({ behavior: 'smooth', block: 'start' })
+      return
+    }
+
+    shouldScrollToDetails.current = true
+    setSelection({ durationId: duration.id, packageId })
+  }
 
   return (
     <div className="inner-page one-day-package-page">
@@ -68,7 +87,7 @@ function TourPackageLayout({ duration, packages, durations }) {
                 key={trip.id}
                 type="button"
                 aria-pressed={trip.id === selectedPackage?.id}
-                onClick={() => setSelection({ durationId: duration.id, packageId: trip.id })}
+                onClick={() => selectPackage(trip.id)}
               >
                 <img src={trip.image} alt="" loading="lazy" />
                 <span>{trip.title}</span>
@@ -79,7 +98,7 @@ function TourPackageLayout({ duration, packages, durations }) {
         </aside>
 
         {selectedPackage && (
-          <article className="one-day-package-detail" aria-labelledby="one-day-selected-title" aria-live="polite">
+          <article id={detailsId} className="one-day-package-detail" aria-labelledby="one-day-selected-title" aria-live="polite">
             <div className="one-day-package-content">
               <div className="one-day-package-heading">
                 <p className="eyebrow"><MapPin size={14} aria-hidden="true" /> {duration.label.toUpperCase()} · {selectedPackage.destination}</p>

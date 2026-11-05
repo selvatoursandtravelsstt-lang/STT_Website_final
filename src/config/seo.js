@@ -1,5 +1,6 @@
 import { business } from './business.js'
 import { tourPackageDurations } from '../data/tourPackages.js'
+import { getTariffFaqs } from '../data/tariffFaqs.js'
 
 const siteUrl = business.websiteUrl.replace(/\/+$/, '')
 
@@ -186,6 +187,22 @@ export function getPageStructuredData(pathname, page) {
           position: index + 1,
           name,
           item: url,
+        })),
+      })
+    }
+
+    if (pathname.startsWith('/tariff/')) {
+      graph.push({
+        '@type': 'FAQPage',
+        '@id': `${canonicalUrl}#faq`,
+        url: canonicalUrl,
+        mainEntity: getTariffFaqs(pathname).map(([question, answer]) => ({
+          '@type': 'Question',
+          name: question,
+          acceptedAnswer: {
+            '@type': 'Answer',
+            text: answer,
+          },
         })),
       })
     }
