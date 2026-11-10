@@ -1,6 +1,6 @@
 export const business = {
   name: 'Selva Tours and Travels',
-  shortName: 'Selva',
+  shortName: 'Selva Tours and Travels',
   logoPath: '',
   websiteUrl: 'https://selvatoursandtravels.com',
   location: 'Coimbatore, Tamil Nadu',
