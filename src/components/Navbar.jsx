@@ -67,10 +67,14 @@ function NavbarContent({ pathname }) {
           </div>
           <div className="header-info-items header-info-contact">
             <span className="header-info-divider" aria-hidden="true" />
-            <a className="header-info-item" href={`tel:${business.phone.replace(/[^\d+]/g, '')}`}>
+            <div className="header-info-item header-phone-group">
               <Phone size={14} aria-hidden="true" />
-              <span>{business.phone}</span>
-            </a>
+              <div className="header-phone-numbers">
+                <a href={`tel:${business.phone.replace(/[^\d+]/g, '')}`}>{business.phone}</a>
+                <span className="header-phone-separator" aria-hidden="true">•</span>
+                <a href={`tel:${business.secondaryPhone.replace(/[^\d+]/g, '')}`}>{business.secondaryPhone}</a>
+              </div>
+            </div>
             <span className="header-info-divider" aria-hidden="true" />
             <a className="header-info-item" href={`mailto:${business.email}`}>
               <Mail size={14} aria-hidden="true" />

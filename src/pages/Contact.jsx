@@ -37,7 +37,14 @@ function Contact() {
               {isConfigured(business.mapsUrl) && <a href={business.mapsUrl} target="_blank" rel="noreferrer">Open in Maps</a>}</div>
             </div>
             <div className="contact-detail">
-              <span><Phone size={19} aria-hidden="true" /></span><div><small>PHONE</small><strong>{isConfigured(business.phone) ? business.phone : '+91 9894376366'}</strong>{phone && <a href={phone}>Call now</a>}</div>
+              <span><Phone size={19} aria-hidden="true" /></span><div><small>PHONE</small>
+                <strong className="contact-phone-numbers">
+                  <a href={phone || `tel:${business.phone.replace(/[^\d+]/g, '')}`}>{isConfigured(business.phone) ? business.phone : '+91 9894376366'}</a>
+                  <span aria-hidden="true">•</span>
+                  <a href={`tel:${business.secondaryPhone.replace(/[^\d+]/g, '')}`}>{business.secondaryPhone}</a>
+                </strong>
+                {phone && <a href={phone}>Call now</a>}
+              </div>
             </div>
             <div className="contact-detail">
               <span><MessageCircle size={19} aria-hidden="true" /></span><div><small>WHATSAPP</small><strong>{isConfigured(business.whatsapp) ? business.whatsapp : '+91 9894376366'}</strong>{wa && <a href={wa} target="_blank" rel="noreferrer">Chat now</a>}</div>

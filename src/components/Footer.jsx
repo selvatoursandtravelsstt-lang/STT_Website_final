@@ -1,4 +1,4 @@
-import { MapPin } from 'lucide-react'
+import { MapPin, Phone } from 'lucide-react'
 import { Link } from 'react-router-dom'
 import { business, isConfigured, whatsappHref } from '../config/business.js'
 
@@ -43,7 +43,15 @@ function Footer() {
           <h2>Start a conversation</h2>
           <p>Tell us where you would like to go. We’ll help you explore the options.</p>
           {waLink ? <a href={waLink} target="_blank" rel="noreferrer">WhatsApp us</a> : <Link to="/contact">Contact Selva</Link>}
-          {isConfigured(business.phone) ? <a href={`tel:${business.phone.replace(/[^\d+]/g, '')}`}>{business.phone}</a> : <span>Phone number to be confirmed</span>}
+          {isConfigured(business.phone) ? (
+            <div className="footer-phone-numbers">
+              <Phone size={15} aria-hidden="true" />
+              <div>
+                <a href={`tel:${business.phone.replace(/[^\d+]/g, '')}`}>{business.phone}</a>
+                <a href={`tel:${business.secondaryPhone.replace(/[^\d+]/g, '')}`}>{business.secondaryPhone}</a>
+              </div>
+            </div>
+          ) : <span>Phone number to be confirmed</span>}
           {isConfigured(business.email) ? <a href={`mailto:${business.email}`}>{business.email}</a> : <span>Email address to be confirmed</span>}
           {!isConfigured(business.whatsapp) && <span>WhatsApp number to be confirmed</span>}
         </div>

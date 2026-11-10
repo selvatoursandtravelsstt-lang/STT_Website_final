@@ -83,6 +83,12 @@ h3 { font-weight: 600; }
 .footer-links a:hover, .footer-contact > a:hover { color: var(--light-gold); }
 .footer-contact > span { color: rgba(255,255,255,.55); font-size: 11px; }
 .footer-contact > a { display: inline-flex; align-items: center; gap: 7px; color: var(--light-gold); }
+.footer-phone-numbers { display: flex; align-items: flex-start; gap: 9px; color: var(--light-gold); }
+.footer-phone-numbers > svg { flex: 0 0 auto; margin-top: 3px; }
+.footer-phone-numbers > div { display: flex; flex-wrap: wrap; gap: 5px 12px; }
+.footer-phone-numbers a { color: var(--light-gold); font-size: 12px; transition: color 180ms ease; }
+.footer-phone-numbers a:hover,
+.footer-phone-numbers a:focus-visible { color: white; }
 .footer-bottom { display: flex; justify-content: space-between; gap: 20px; padding-block: 20px; border-top: 1px solid rgba(255,255,255,.13); color: rgba(255,255,255,.48); font-size: 10px; letter-spacing: .02em; }
 .footer-credit a { color: var(--light-gold); }
 .footer-credit a:hover { color: var(--gold); }

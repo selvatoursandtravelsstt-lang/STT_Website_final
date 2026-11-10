@@ -5,6 +5,7 @@ export const business = {
   websiteUrl: 'https://selvatoursandtravels.com',
   location: 'Coimbatore, Tamil Nadu',
   phone: '+91 9894376366',
+  secondaryPhone: '+91 9488818897',
   whatsapp: '+91 9894376366',
   email: 'selvatoursandtravels.stt@gmail.com',
   address: 'No 5A/8, Subbathal Layout, 3rd Street, Rathinapuri, Coimbatore, Tamil Nadu – 641027, India',

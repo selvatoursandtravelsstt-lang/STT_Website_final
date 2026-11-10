@@ -15,6 +15,11 @@
 .contact-detail strong { color: var(--navy); font-size: 11px; font-weight: 600; overflow-wrap: anywhere; }
 .contact-detail p { color: #728193; font-size: 10px; line-height: 1.6; }
 .contact-detail a { display: inline-flex; align-items: center; gap: 4px; margin-top: 2px; color: var(--deep-blue); font-size: 10px; font-weight: 700; }
+.contact-phone-numbers { display: flex; flex-wrap: wrap; align-items: center; gap: 4px 8px; }
+.contact-phone-numbers a { display: inline; margin-top: 0; color: var(--navy); font-size: 11px; font-weight: 600; white-space: nowrap; }
+.contact-phone-numbers a:hover,
+.contact-phone-numbers a:focus-visible { color: #9b7328; }
+.contact-phone-numbers > span { color: var(--gold); }
 .contact-config-note { margin-top: 22px; color: #8a96a1; font-size: 9px; font-style: italic; }
 
 .contact-enquiry-layout {
